@@ -58,8 +58,6 @@ const EditorPage: React.FC = (params: any) => {
     );
   }
 
-  console.log("detectLanguage(code)", detectLanguage(code));
-
   return (
     <>
       <Header />
