@@ -3,9 +3,8 @@ import React from "react";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col justify-center items-center h-[100vh]">
-      <div className="flex items-center gap-4">
-        <span className="text-[#AAD4C8] text-[130px]">Kodlin</span>
+    <div className="flex flex-col justify-center items-center h-[100vh] gap-4">
+      <div className="flex items-center">
         <Logo404 width={150} height={150} />
       </div>
       <div className={`w-[50%] text-center`}>
