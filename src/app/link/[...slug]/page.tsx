@@ -21,7 +21,7 @@ const EditorPage: React.FC = (params: any) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://kodlinc.metafron.com/getData/${params?.params?.slug[0]}`,
+          `https://kodlinc-api.metafron.com/getData/${params?.params?.slug[0]}`,
           {
             headers: {
               "Content-Type": "application/json",
