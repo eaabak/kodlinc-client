@@ -12,7 +12,7 @@ export default function NotFound({text}: NotFoundProps) {
         <Logo404 width={150} height={150} />
       </div>
       <div className={`w-[50%] text-center`}>
-        <span className="dark:text-[#4e4c4c] text-[#24292ead] text-xl leading-4 font-medium">
+        <span className="dark:text-[#4e4c4c] text-[#24292ead] text-xl leading-4">
           {text}
         </span>
       </div>

@@ -16,7 +16,6 @@ function EditorPage() {
   const [status, setStatus] = useState(0);
   const { resolvedTheme } = useTheme();
 
-  console.log("resolvedTheme: ", resolvedTheme);
   useEffect(() => {
     const fetchData = async () => {
       try {

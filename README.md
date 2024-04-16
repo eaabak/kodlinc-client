@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+# Kodlinc
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+    <img src="kodlincMarket.png" alt="Kodlinc Logo" style="padding-bottom: 20px;">
+</div>
 
-## Available Scripts
+Kodlinc is a Visual Studio Code extension that converts code snippets into links. It's a useful tool for easily sharing and accessing code snippets.
 
-In the project directory, you can run:
+## Installation
 
-### `yarn start`
+1. In Visual Studio Code, open the Extensions view by clicking on the Extensions icon in the sidebar or by using the shortcut `Cmd+Shift+X` (Mac) or `Ctrl+Shift+X` (Windows).
+2. Search for "kodlinc" in the search bar and locate the extension in the search results.
+3. Click the "Install" button to install the extension.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Open the file containing the code snippets you want to convert.
+2. Select the code snippet you want to convert.
+3. On Mac, press the shortcut `Cmd+k+l` to execute the Kodlinc command.
+4. On Windows, press the shortcut `Ctrl+k+l` to execute the Kodlinc command.
+5. Your code snippet will be converted into a link and copied to your clipboard.
+6. You can now paste the link wherever you want to share it.
 
-### `yarn test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Convert code snippets into links.
+- Automatically copy the link to your clipboard.
 
-### `yarn build`
+## Contribution
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you would like to contribute to the project, please visit our GitHub repository [here](https://github.com/eaabak/kodlinc).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## License
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
-### `yarn eject`
+## Contact
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+For feedback or questions, please get in touch with us [here](https://github.com/eaabak/kodlinc).

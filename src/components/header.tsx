@@ -5,7 +5,6 @@ import { FiMoon, FiSun } from "react-icons/fi";
 const Header = () => {
   const { setTheme, resolvedTheme } = useTheme();
 
-  
   const whichMod = () => {
     if (resolvedTheme === "dark") {
       return (
