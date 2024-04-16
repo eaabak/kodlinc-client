@@ -37,3 +37,8 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 ## Contact
 
 For feedback or questions, please get in touch with us [here](https://github.com/eaabak/kodlinc).
+
+<div align="center">
+    <img src="loodosLogo.jpeg" alt="Loodos Logo" style="width:100px; margin-top: 20px;">
+    <p style="font-size: 14px;">Powered by <a href='https://loodos.com/' target='_blank'>Loodos</a></p>
+</div>
