@@ -12,6 +12,7 @@ import { detectLanguage } from "./utils/detectLanguage";
 import Aside from "./components/aside";
 import Footer from "./components/footer";
 import { useTheme } from "./ThemeProvider";
+import config from "./config";
 
 const EditorPage: React.FC = () => {
   const params = useParams<{ slug: string }>();
@@ -25,7 +26,7 @@ const EditorPage: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://kodlinc-api.metafron.com/getData/${params.slug}`,
+          `${config.apiUrl}/getData/${params.slug}`,
           {
             headers: {
               "Content-Type": "application/json",
