@@ -27,11 +27,7 @@ const EditorPage: React.FC = () => {
       try {
         const response = await axios.get(
           `${config.apiUrl}/getData/${params.slug}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
+          { headers: { "Content-Type": "application/json" } }
         );
 
         setData(response.data);
@@ -47,6 +43,15 @@ const EditorPage: React.FC = () => {
     fetchData();
   }, [params?.slug]);
 
+  useEffect(() => {
+    if (!isLoading && editorRef.current) {
+      const model = editorRef.current.getModel();
+      if (model) {
+        model.setValue(decodeBase64(data?.base64_string || ""));
+      }
+    }
+  }, [isLoading, data]);
+
   if (status === 404) {
     return <NotFound text="No code for such an ID was found" />;
   }
@@ -59,8 +64,6 @@ const EditorPage: React.FC = () => {
     );
   }
 
-  const code = data?.base64_string ? decodeBase64(data.base64_string) : "";
-
   const handleEditorDidMount = async (
     editor: monaco.editor.IStandaloneCodeEditor,
     monaco: any
@@ -70,37 +73,37 @@ const EditorPage: React.FC = () => {
       const doc = new Y.Doc();
       const model = editor.getModel();
       const type = doc.getText("monaco");
-  
+
       if (model) {
-        model.setValue(code);
-  
+        model.setValue(decodeBase64(data?.base64_string || ""));
+
         const wsProvider = new WebsocketProvider(
           "ws://localhost:6561",
-          "editor-users",
+          params?.slug || "",
           doc
         );
+
         wsProvider.on("status", ({ status }: { status: string }) => {
           if (status === "connected") {
             console.log("Connection established successfully!");
           }
         });
-  
+
         new MonacoBinding(type, model, new Set([editor]), wsProvider.awareness);
       }
     } catch (error) {
       console.error("Error in handleEditorDidMount:", error);
     }
   };
-  
 
   return (
     <div className="flex">
       <Aside />
       <div className="flex-grow h-[calc(100vh-_57px)] text-base">
         <Editor
-          key={code}
+          key={params.slug}
           height="100%"
-          language={detectLanguage(code)}
+          language={detectLanguage(data?.base64_string || "")}
           theme={resolvedTheme === "dark" ? "vs-dark" : "light"}
           onMount={handleEditorDidMount}
         />
@@ -110,8 +113,6 @@ const EditorPage: React.FC = () => {
   );
 };
 
-const decodeBase64 = (base64String: string): string => {
-  return atob(base64String);
-};
+const decodeBase64 = (base64String: string): string => atob(base64String);
 
 export default EditorPage;

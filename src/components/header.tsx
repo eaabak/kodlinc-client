@@ -13,7 +13,9 @@ const Header = () => {
           onClick={() => setTheme("light")}
         >
           <FiSun className="w-[18px] h-[18px] text-[#6a737d] " />
-          <span className="text-[#6a737d] text-[10px]">Light</span>
+          <span className="text-[#6a737d] text-[10px] custom-font-family">
+            Light
+          </span>
         </div>
       );
     }
@@ -25,7 +27,9 @@ const Header = () => {
           onClick={() => setTheme("dark")}
         >
           <FiMoon className="w-[18px] h-[18px] text-[#6a737d] " />
-          <span className="text-[#6a737d] text-[10px]">Dark</span>
+          <span className="text-[#6a737d] text-[10px] custom-font-family">
+            Dark
+          </span>
         </div>
       );
     }
