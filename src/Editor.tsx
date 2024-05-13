@@ -10,9 +10,10 @@ import { MonacoBinding } from "y-monaco";
 import * as monaco from "monaco-editor";
 import { detectLanguage } from "./utils/detectLanguage";
 import Aside from "./components/aside";
-import Footer from "./components/footer";
 import { useTheme } from "./ThemeProvider";
 import config from "./config";
+import CollaborationSidebar from "./components/collaborationSidebar";
+import { Footer } from "./components/footer";
 
 const EditorPage: React.FC = () => {
   const params = useParams<{ slug: string }>();
@@ -21,6 +22,7 @@ const EditorPage: React.FC = () => {
   const [status, setStatus] = useState<number>(0);
   const { resolvedTheme } = useTheme();
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
+  const [position, setPosition] = useState<any | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,6 +65,15 @@ const EditorPage: React.FC = () => {
       </div>
     );
   }
+  const handleEditorClick = () => {
+    const editor = editorRef.current;
+    if (editor) {
+      const position = editor.getPosition();
+      if (position) {
+        setPosition(position);
+      }
+    }
+  };
 
   const handleEditorDidMount = async (
     editor: monaco.editor.IStandaloneCodeEditor,
@@ -90,6 +101,7 @@ const EditorPage: React.FC = () => {
         });
 
         new MonacoBinding(type, model, new Set([editor]), wsProvider.awareness);
+        editor.onMouseDown(handleEditorClick);
       }
     } catch (error) {
       console.error("Error in handleEditorDidMount:", error);
@@ -97,18 +109,21 @@ const EditorPage: React.FC = () => {
   };
 
   return (
-    <div className="flex">
-      <Aside />
-      <div className="flex-grow h-[calc(100vh-_57px)] text-base">
-        <Editor
-          key={params.slug}
-          height="100%"
-          language={detectLanguage(data?.base64_string || "")}
-          theme={resolvedTheme === "dark" ? "vs-dark" : "light"}
-          onMount={handleEditorDidMount}
-        />
+    <div className="flex flex-col">
+      <div className="flex">
+        <Aside />
+        <div className="flex-grow h-[calc(100vh-_57px)] text-base">
+          <Editor
+            key={params.slug}
+            height="100%"
+            language={detectLanguage(data?.base64_string || "")}
+            theme={resolvedTheme === "dark" ? "vs-dark" : "light"}
+            onMount={handleEditorDidMount}
+          />
+        </div>
+        <CollaborationSidebar />
       </div>
-      <Footer />
+      <Footer position={position} />
     </div>
   );
 };

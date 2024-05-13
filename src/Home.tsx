@@ -35,7 +35,7 @@ const Home: React.FC = () => {
               Loodos
             </a>
           </span>
-          <div>
+          <div title="https://github.com/eaabak">
             <a
               href={"https://github.com/eaabak"}
               target="_blank"

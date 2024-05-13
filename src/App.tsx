@@ -1,3 +1,4 @@
+import BlankEditor from "./BlankEditor";
 import EditorPage from "./Editor";
 import Home from "./Home";
 import NotFound from "./NotFound";
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/link" element={<Home />} />
         <Route path="/link/:slug" element={<EditorPage />} />
+        <Route path="/:slug" element={<BlankEditor />} />
         <Route path="*" element={<NotFound text="Page not found" />} />
       </Routes>
     </Router>
